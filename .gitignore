@@ -1,0 +1,6 @@
+# Ingnore generated files
+.qmake.stash
+Makefile
+Makefile.Debug
+Makefile.Release
+debug/*

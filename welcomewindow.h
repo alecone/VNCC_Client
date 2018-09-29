@@ -15,6 +15,13 @@ public:
     explicit WelcomeWindow(QWidget *parent = nullptr);
     ~WelcomeWindow();
 
+private slots:
+    void on_pushButton_clicked();
+
+    void on_serverAddress_textChanged(const QString &arg1);
+
+    void on_serverAddress_returnPressed();
+
 private:
     Ui::WelcomeWindow *ui;
 };
