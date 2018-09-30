@@ -7,6 +7,7 @@ WelcomeWindow::WelcomeWindow(QWidget *parent) :
     ui(new Ui::WelcomeWindow)
 {
     ui->setupUi(this);
+    // TODO: Implement here all signal and slot connection
 }
 
 WelcomeWindow::~WelcomeWindow()
@@ -18,6 +19,7 @@ void WelcomeWindow::on_pushButton_clicked()
 {
     //TODO: Implement here connection
     qDebug() <<"Button clicked";
+    ui->pushButton->setText("Connecting");
 }
 
 void WelcomeWindow::on_serverAddress_textChanged(const QString &arg1)

@@ -10,7 +10,9 @@
 #define UI_WELCOMEWINDOW_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
@@ -27,6 +29,7 @@ public:
     QWidget *centralWidget;
     QPushButton *pushButton;
     QLineEdit *serverAddress;
+    QLabel *title;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -36,7 +39,11 @@ public:
         if (WelcomeWindow->objectName().isEmpty())
             WelcomeWindow->setObjectName(QStringLiteral("WelcomeWindow"));
         WelcomeWindow->resize(642, 411);
+        QIcon icon;
+        icon.addFile(QStringLiteral(":/images/Logo_UniPg.png"), QSize(), QIcon::Normal, QIcon::Off);
+        WelcomeWindow->setWindowIcon(icon);
         WelcomeWindow->setWindowOpacity(0.95);
+        WelcomeWindow->setAutoFillBackground(false);
         centralWidget = new QWidget(WelcomeWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         pushButton = new QPushButton(centralWidget);
@@ -50,6 +57,12 @@ public:
         serverAddress->setAlignment(Qt::AlignCenter);
         serverAddress->setReadOnly(false);
         serverAddress->setClearButtonEnabled(true);
+        title = new QLabel(centralWidget);
+        title->setObjectName(QStringLiteral("title"));
+        title->setGeometry(QRect(170, 140, 291, 41));
+        title->setTextFormat(Qt::RichText);
+        title->setScaledContents(false);
+        title->setAlignment(Qt::AlignCenter);
         WelcomeWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(WelcomeWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -72,6 +85,7 @@ public:
         WelcomeWindow->setWindowTitle(QApplication::translate("WelcomeWindow", "UniPg Cloud", nullptr));
         pushButton->setText(QApplication::translate("WelcomeWindow", "Connect", nullptr));
         serverAddress->setText(QApplication::translate("WelcomeWindow", "127.0.0.1", nullptr));
+        title->setText(QApplication::translate("WelcomeWindow", "Type Server address ...", nullptr));
     } // retranslateUi
 
 };

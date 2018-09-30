@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/Logo_UniPg.png</file>
+        <file>images/sfondo_unipg.png</file>
+    </qresource>
+</RCC>
