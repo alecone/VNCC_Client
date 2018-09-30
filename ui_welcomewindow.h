@@ -84,7 +84,7 @@ public:
     {
         WelcomeWindow->setWindowTitle(QApplication::translate("WelcomeWindow", "UniPg Cloud", nullptr));
         pushButton->setText(QApplication::translate("WelcomeWindow", "Connect", nullptr));
-        serverAddress->setText(QApplication::translate("WelcomeWindow", "127.0.0.1", nullptr));
+        serverAddress->setText(QString());
         title->setText(QApplication::translate("WelcomeWindow", "Type Server address ...", nullptr));
     } // retranslateUi
 
