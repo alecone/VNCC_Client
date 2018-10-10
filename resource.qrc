@@ -2,5 +2,10 @@
     <qresource prefix="/">
         <file>images/Logo_UniPg.png</file>
         <file>images/sfondo_unipg.png</file>
+        <file>images/clip.png</file>
+        <file>images/file.png</file>
+        <file>images/folder.png</file>
+        <file>images/music.png</file>
+        <file>images/pic.png</file>
     </qresource>
 </RCC>

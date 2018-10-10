@@ -14,7 +14,9 @@ int main(int argc, char *argv[])
     splash->setPixmap(QPixmap(proPath));
     splash->show();
 
+    QTcpSocket *socket = new QTcpSocket();
     WelcomeWindow w;
+    w.setSocket(socket);
     QTimer::singleShot(3000, splash, SLOT(close()));
     QTimer::singleShot(3000, &w, SLOT(show()));
 

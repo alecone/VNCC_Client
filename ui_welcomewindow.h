@@ -38,7 +38,7 @@ public:
     {
         if (WelcomeWindow->objectName().isEmpty())
             WelcomeWindow->setObjectName(QStringLiteral("WelcomeWindow"));
-        WelcomeWindow->resize(642, 411);
+        WelcomeWindow->resize(642, 406);
         QIcon icon;
         icon.addFile(QStringLiteral(":/images/Logo_UniPg.png"), QSize(), QIcon::Normal, QIcon::Off);
         WelcomeWindow->setWindowIcon(icon);
