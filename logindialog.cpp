@@ -19,11 +19,6 @@ void LogInDialog::setSocket(QTcpSocket *mainSocket)
     m_socket = mainSocket;
     connect(m_socket, SIGNAL(readyRead()), this, SLOT(getServerAns()), Qt::DirectConnection);
 }
-//void LogInDialog::on_buttonBox_accepted()
-//{
-//    // Talk with the server
-//    m_socket->write(user_and_pass.toStdString().c_str(), user_and_pass.length());
-//}
 
 void LogInDialog::getServerAns()
 {
@@ -60,6 +55,9 @@ void LogInDialog::on_passLine_editingFinished()
 
 void LogInDialog::on_registerButton_clicked()
 {
+    m_socket->write(REGISTER.toStdString().c_str(), REGISTER.length());
+    m_socket->waitForReadyRead();
+    QByteArray recv = m_socket->read(m_socket->bytesAvailable());
 
 }
 

@@ -34,6 +34,17 @@ private:
     Ui::LogInDialog *ui;
     QString user_and_pass;
     QTcpSocket *m_socket;
+    const QString REGISTER = "REGISTER";
+    const QString LIN = "LOGIN";
+    const QString LINOK = "LOGIN_OK";
+    const QString LINNOK = "LOGIN_NOK";
+    const QString REG = "REGISTER";
+    const QString REGOK = "REGISTER_OK";
+    const QString REGNOK = "REGISTER_NOK";
+    const QString LOUT = "LOGOUT";
+    const QString OK = "OK";
+    const QString NOK = "NOK";
+
 };
 
 #endif // LOGINDIALOG_H

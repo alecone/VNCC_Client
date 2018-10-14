@@ -193,9 +193,6 @@ void WelcomeWindow::fileSize()
     bar->setMaximum(lengthToDownload);
     bar->setWindowModality(Qt::WindowModal);
     bar->show();
-//    foreach (auto x, read) {
-//        qDebug() << "array: " << x;
-//    }
     // Send OK_TO_GO
     m_socket->write(OK.toStdString().c_str(), OK.length());
     this->downloadFileFromServer();
