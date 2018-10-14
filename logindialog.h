@@ -23,11 +23,12 @@ signals:
     void authenticated(void);
 
 private slots:
-    void on_buttonBox_accepted();
-    void on_buttonBox_rejected();
     void on_userNameLine_editingFinished();
     void on_passLine_editingFinished();
     void getServerAns();
+    void on_registerButton_clicked();
+    void on_loginButton_clicked();
+    void on_cancelButton_clicked();
 
 private:
     Ui::LogInDialog *ui;

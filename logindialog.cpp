@@ -19,11 +19,11 @@ void LogInDialog::setSocket(QTcpSocket *mainSocket)
     m_socket = mainSocket;
     connect(m_socket, SIGNAL(readyRead()), this, SLOT(getServerAns()), Qt::DirectConnection);
 }
-void LogInDialog::on_buttonBox_accepted()
-{
-    // Talk with the server
-    m_socket->write(user_and_pass.toStdString().c_str(), user_and_pass.length());
-}
+//void LogInDialog::on_buttonBox_accepted()
+//{
+//    // Talk with the server
+//    m_socket->write(user_and_pass.toStdString().c_str(), user_and_pass.length());
+//}
 
 void LogInDialog::getServerAns()
 {
@@ -46,11 +46,6 @@ void LogInDialog::getServerAns()
 
     }
 }
-void LogInDialog::on_buttonBox_rejected()
-{
-    this->hide();
-}
-
 
 void LogInDialog::on_userNameLine_editingFinished()
 {
@@ -61,4 +56,19 @@ void LogInDialog::on_userNameLine_editingFinished()
 void LogInDialog::on_passLine_editingFinished()
 {
     user_and_pass.append(ui->passLine->text());
+}
+
+void LogInDialog::on_registerButton_clicked()
+{
+
+}
+
+void LogInDialog::on_loginButton_clicked()
+{
+
+}
+
+void LogInDialog::on_cancelButton_clicked()
+{
+    this->hide();
 }
