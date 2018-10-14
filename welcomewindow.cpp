@@ -8,6 +8,7 @@
 #include <QJsonValue>
 #include <QJsonArray>
 #include <QFileDialog>
+#include <QMessageBox>
 
 WelcomeWindow::WelcomeWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -225,4 +226,24 @@ void WelcomeWindow::downloadFileFromServer()
     file.close();
     treeDir->downloadButton->setDisabled(false);
     treeDir->treeWidget->setDisabled(false);
+}
+
+void WelcomeWindow::on_uploadButton_clicked()
+{
+    QString dialog = QFileDialog::getOpenFileName(this, tr("Save File"),
+                                                    QDir::homePath());
+    dialog = dialog.split("/").last();
+    if(dialog == "")
+    {
+        QMessageBox::warning(this, tr("Upload on your Cloud"),
+                                       tr("A folder has been selected.\n"
+                                          "Sorry, this is not supported yet :("),
+                                       QMessageBox::Ok);
+        return;
+    }
+
+    qDebug() << selectedItem;
+    m_socket->write(selectedItem.toStdString().c_str(), selectedItem.length());
+    treeDir->downloadButton->setDisabled(true);
+    treeDir->treeWidget->setDisabled(true);
 }

@@ -19,6 +19,11 @@ public:
     explicit WelcomeWindow(QWidget *parent = nullptr);
     ~WelcomeWindow();
 
+    const QString OK = "OK";
+    const QString NOK = "NOK";
+    const QString DW = "DOWNLOAD";
+    const QString UP = "UPLOAD";
+    const QString RM = "REMOVE";
 
 public slots:
     void setSocket(QTcpSocket *mainSocket);
@@ -32,8 +37,8 @@ private slots:
     void downloadFileFromServer();
     void setTreeDirectory();
     void on_treeWidget_itemClicked(QTreeWidgetItem *item, int column);
-
     void on_downloadButton_clicked();
+    void on_uploadButton_clicked();
 
 private:
     Ui::WelcomeWindow *ui;
@@ -49,8 +54,6 @@ private:
     QString selectedItemPath;
     qint64 lengthToDownload;
     qint64 lengthToUpload;
-    const QString OK = "OK";
-    const QString NOK = "NOK";
     const qint64 bufferSize = 1024;
     QProgressDialog *bar;
 };
