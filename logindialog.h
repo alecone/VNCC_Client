@@ -21,14 +21,17 @@ public slots:
 
 signals:
     void authenticated(void);
+    void doItAgain(void);
 
 private slots:
+    bool checkDomain(QString user_and_pass);
     void on_userNameLine_editingFinished();
     void on_passLine_editingFinished();
     void getServerAns();
     void on_registerButton_clicked();
     void on_loginButton_clicked();
     void on_cancelButton_clicked();
+    void reject();
 
 private:
     Ui::LogInDialog *ui;

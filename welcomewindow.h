@@ -24,10 +24,15 @@ public:
     const QString DW = "DOWNLOAD";
     const QString UP = "UPLOAD";
     const QString RM = "REMOVE";
+    const QString TREE = "GETTREEVIEW";
+    const QString ND = "NEWDIR";
+    const QString DISCONNECT = "DISCONNECT";
 
 public slots:
     void setSocket(QTcpSocket *mainSocket);
     void startUserSession(void);
+    void retryConnection(void);
+    void closeEvent(QCloseEvent *event);
 
 private slots:
     void on_pushButton_clicked();
@@ -39,6 +44,8 @@ private slots:
     void on_treeWidget_itemClicked(QTreeWidgetItem *item, int column);
     void on_downloadButton_clicked();
     void on_uploadButton_clicked();
+    void on_removeButton_clicked();
+    void on_newDir_clicked();
 
 private:
     Ui::WelcomeWindow *ui;
@@ -52,8 +59,8 @@ private:
     QTcpSocket *m_socket;
     QString selectedItem;
     QString selectedItemPath;
-    qint64 lengthToDownload;
-    qint64 lengthToUpload;
+    int lengthToDownload;
+    int lengthToUpload;
     const qint64 bufferSize = 1024;
     QProgressDialog *bar;
 };

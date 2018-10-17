@@ -25,6 +25,7 @@ public:
     QPushButton *downloadButton;
     QPushButton *removeButton;
     QPushButton *uploadButton;
+    QPushButton *newDir;
 
     void setupUi(QWidget *TreeDir)
     {
@@ -42,14 +43,17 @@ public:
         treeWidget->setColumnCount(1);
         downloadButton = new QPushButton(TreeDir);
         downloadButton->setObjectName(QStringLiteral("downloadButton"));
-        downloadButton->setGeometry(QRect(60, 340, 93, 28));
+        downloadButton->setGeometry(QRect(20, 340, 93, 28));
         removeButton = new QPushButton(TreeDir);
         removeButton->setObjectName(QStringLiteral("removeButton"));
-        removeButton->setGeometry(QRect(420, 340, 93, 28));
+        removeButton->setGeometry(QRect(308, 340, 93, 28));
         removeButton->setFlat(false);
         uploadButton = new QPushButton(TreeDir);
         uploadButton->setObjectName(QStringLiteral("uploadButton"));
-        uploadButton->setGeometry(QRect(240, 340, 93, 28));
+        uploadButton->setGeometry(QRect(159, 340, 100, 28));
+        newDir = new QPushButton(TreeDir);
+        newDir->setObjectName(QStringLiteral("newDir"));
+        newDir->setGeometry(QRect(450, 340, 93, 28));
 
         retranslateUi(TreeDir);
 
@@ -64,6 +68,7 @@ public:
         downloadButton->setText(QApplication::translate("TreeDir", "Download", nullptr));
         removeButton->setText(QApplication::translate("TreeDir", "Remove", nullptr));
         uploadButton->setText(QApplication::translate("TreeDir", "Upload", nullptr));
+        newDir->setText(QApplication::translate("TreeDir", "New Dir", nullptr));
     } // retranslateUi
 
 };

@@ -12,7 +12,7 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QDialog>
-#include <QtWidgets/QDialogButtonBox>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 
@@ -21,7 +21,9 @@ QT_BEGIN_NAMESPACE
 class Ui_LogInDialog
 {
 public:
-    QDialogButtonBox *buttonBox;
+    QPushButton *registerButton;
+    QPushButton *loginButton;
+    QPushButton *cancelButton;
     QLabel *label;
     QLabel *label_2;
     QLineEdit *userNameLine;
@@ -32,11 +34,18 @@ public:
         if (LogInDialog->objectName().isEmpty())
             LogInDialog->setObjectName(QStringLiteral("LogInDialog"));
         LogInDialog->resize(400, 300);
-        buttonBox = new QDialogButtonBox(LogInDialog);
-        buttonBox->setObjectName(QStringLiteral("buttonBox"));
-        buttonBox->setGeometry(QRect(30, 240, 341, 32));
-        buttonBox->setOrientation(Qt::Horizontal);
-        buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
+        cancelButton = new QPushButton(LogInDialog);
+        cancelButton->setObjectName("cancelButton");
+        cancelButton->setText("Cancel");
+        cancelButton->setGeometry(290, 230, 90, 25);
+        loginButton = new QPushButton(LogInDialog);
+        loginButton->setObjectName("loginButton");
+        loginButton->setText("Log In");
+        loginButton->setGeometry(156, 230, 90, 25);
+        registerButton = new QPushButton(LogInDialog);
+        registerButton->setObjectName("registerButton");
+        registerButton->setText("Register");
+        registerButton->setGeometry(20, 230, 90, 25);
         label = new QLabel(LogInDialog);
         label->setObjectName(QStringLiteral("label"));
         label->setGeometry(QRect(40, 100, 81, 16));
@@ -52,8 +61,6 @@ public:
         passLine->setEchoMode(QLineEdit::Password);
 
         retranslateUi(LogInDialog);
-        QObject::connect(buttonBox, SIGNAL(accepted()), LogInDialog, SLOT(accept()));
-        QObject::connect(buttonBox, SIGNAL(rejected()), LogInDialog, SLOT(reject()));
 
         QMetaObject::connectSlotsByName(LogInDialog);
     } // setupUi
