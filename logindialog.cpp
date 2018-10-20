@@ -95,7 +95,7 @@ void LogInDialog::on_passLine_editingFinished()
 void LogInDialog::on_registerButton_clicked()
 {
     ui->registerButton->setDisabled(true);
-    if(!user_and_pass.split('|')[0].contains('.') || user_and_pass.split('|')[0].split('.').length() > 2)
+    if(!user_and_pass.split('@')[0].contains('.') || user_and_pass.split('@')[0].split('.').length() > 2)
     {
         QMessageBox::warning(this, tr("Registration Error"),
                                        tr("User Name must be: name.surname@"),
