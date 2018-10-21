@@ -37,23 +37,28 @@ public:
         TreeDir->setFocusPolicy(Qt::NoFocus);
         treeWidget = new QTreeWidget(TreeDir);
         treeWidget->setObjectName(QStringLiteral("treeWidget"));
-        treeWidget->setGeometry(QRect(0, 0, 561, 321));
+        treeWidget->setGeometry(QRect(0, 25, 642, 291));
+        QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(treeWidget->sizePolicy().hasHeightForWidth());
+        treeWidget->setSizePolicy(sizePolicy);
         treeWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
         treeWidget->setAnimated(true);
         treeWidget->setColumnCount(1);
         downloadButton = new QPushButton(TreeDir);
         downloadButton->setObjectName(QStringLiteral("downloadButton"));
-        downloadButton->setGeometry(QRect(20, 340, 93, 28));
+        downloadButton->setGeometry(QRect(((TreeDir->width())/8)*1-(93/2), 345, 93, 28));
         removeButton = new QPushButton(TreeDir);
         removeButton->setObjectName(QStringLiteral("removeButton"));
-        removeButton->setGeometry(QRect(308, 340, 93, 28));
+        removeButton->setGeometry(QRect(((TreeDir->width())/8)*5-(93/2), 345, 93, 28));
         removeButton->setFlat(false);
         uploadButton = new QPushButton(TreeDir);
         uploadButton->setObjectName(QStringLiteral("uploadButton"));
-        uploadButton->setGeometry(QRect(159, 340, 100, 28));
+        uploadButton->setGeometry(QRect(((TreeDir->width())/8)*3-(93/2), 345, 93, 28));
         newDir = new QPushButton(TreeDir);
         newDir->setObjectName(QStringLiteral("newDir"));
-        newDir->setGeometry(QRect(450, 340, 93, 28));
+        newDir->setGeometry(QRect(((TreeDir->width())/8)*7-(93/2), 345, 93, 28));
 
         retranslateUi(TreeDir);
 

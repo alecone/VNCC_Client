@@ -2,23 +2,22 @@
 #include <QApplication>
 #include <QSplashScreen>
 #include <QTimer>
-#include <QDir>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    QString proPath = QDir::currentPath();
+    QPixmap pixmap;
+    pixmap.load(":/images/sfondo_unipg.png");
 
     QSplashScreen * splash = new QSplashScreen;
-    proPath.append("/images/sfondo_unipg.png");
-    splash->setPixmap(QPixmap(proPath));
+    splash->setPixmap(pixmap);
     splash->show();
 
     QTcpSocket *socket = new QTcpSocket();
     WelcomeWindow w;
     w.setSocket(socket);
-    QTimer::singleShot(3000, splash, SLOT(close()));
-    QTimer::singleShot(3000, &w, SLOT(show()));
+    QTimer::singleShot(2000, splash, SLOT(close()));
+    QTimer::singleShot(2100, &w, SLOT(show()));
 
     return a.exec();
 }

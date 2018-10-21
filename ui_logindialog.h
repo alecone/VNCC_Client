@@ -34,6 +34,7 @@ public:
         if (LogInDialog->objectName().isEmpty())
             LogInDialog->setObjectName(QStringLiteral("LogInDialog"));
         LogInDialog->resize(400, 300);
+        LogInDialog->setFixedSize(LogInDialog->size());
         cancelButton = new QPushButton(LogInDialog);
         cancelButton->setObjectName("cancelButton");
         cancelButton->setText("Cancel");

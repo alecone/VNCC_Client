@@ -39,6 +39,7 @@ public:
         if (WelcomeWindow->objectName().isEmpty())
             WelcomeWindow->setObjectName(QStringLiteral("WelcomeWindow"));
         WelcomeWindow->resize(642, 406);
+        WelcomeWindow->setFixedSize(WelcomeWindow->size());
         QIcon icon;
         icon.addFile(QStringLiteral(":/images/Logo_UniPg.png"), QSize(), QIcon::Normal, QIcon::Off);
         WelcomeWindow->setWindowIcon(icon);
@@ -48,7 +49,7 @@ public:
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         pushButton = new QPushButton(centralWidget);
         pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(270, 230, 93, 28));
+        pushButton->setGeometry(QRect(WelcomeWindow->width()/2-(92/2), 230, 93, 28));
         serverAddress = new QLineEdit(centralWidget);
         serverAddress->setObjectName(QStringLiteral("serverAddress"));
         serverAddress->setGeometry(QRect(170, 190, 291, 22));
@@ -67,13 +68,6 @@ public:
         menuBar = new QMenuBar(WelcomeWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
         menuBar->setGeometry(QRect(0, 0, 642, 26));
-        WelcomeWindow->setMenuBar(menuBar);
-        mainToolBar = new QToolBar(WelcomeWindow);
-        mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
-        WelcomeWindow->addToolBar(Qt::TopToolBarArea, mainToolBar);
-        statusBar = new QStatusBar(WelcomeWindow);
-        statusBar->setObjectName(QStringLiteral("statusBar"));
-        WelcomeWindow->setStatusBar(statusBar);
 
         retranslateUi(WelcomeWindow);
 
