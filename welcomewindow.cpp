@@ -130,7 +130,7 @@ void WelcomeWindow::setTreeDirectory()
     parent->setIcon(0, QIcon(":/images/folder.png"));
     setTree(obJson, parent);
     treeDir->treeWidget->addTopLevelItem(parent);
-
+    treeDir->treeWidget->expandAll();
 }
 
 void WelcomeWindow::on_treeWidget_itemClicked(QTreeWidgetItem *item, int column)
@@ -256,6 +256,7 @@ void WelcomeWindow::downloadFileFromServer()
     }
     bar->close();
     file.close();
+    QMessageBox::information(this, tr("Info"), tr("Download Completed"), 0);
     treeDir->downloadButton->setDisabled(false);
     treeDir->treeWidget->setDisabled(false);
 }
@@ -364,6 +365,7 @@ void WelcomeWindow::on_uploadButton_clicked()
         connect(m_socket, SIGNAL(readyRead()), this, SLOT(setTreeDirectory()), Qt::DirectConnection);
         treeDir->treeWidget->clear();
         m_socket->write(TREE.toStdString().c_str(), TREE.length());
+        QMessageBox::information(this, tr("Info"), tr("Upload Completed"), 0);
     }
     else
     {
@@ -405,7 +407,7 @@ void WelcomeWindow::on_removeButton_clicked()
         connect(m_socket, SIGNAL(readyRead()), this, SLOT(setTreeDirectory()), Qt::DirectConnection);
         treeDir->treeWidget->clear();
         m_socket->write(TREE.toStdString().c_str(), TREE.length());
-
+        QMessageBox::information(this, tr("Info"), tr("Remove Completed"), 0);
     }
     else
     {
@@ -448,7 +450,7 @@ void WelcomeWindow::on_newDir_clicked()
         connect(m_socket, SIGNAL(readyRead()), this, SLOT(setTreeDirectory()), Qt::DirectConnection);
         treeDir->treeWidget->clear();
         m_socket->write(TREE.toStdString().c_str(), TREE.length());
-
+        QMessageBox::information(this, tr("Info"), tr("New dir Created"), 0);
     }
     else
     {
